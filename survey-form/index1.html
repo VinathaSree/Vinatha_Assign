@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<h2>Customer Survey Form</h2>
+<form action="#" onsubmit="return false;">
+ <div class="container">
+    <label for="uname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="uname" required>
+
+    <label for="lname"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lname" required>
+
+    <label for="dob"><b>Date of Birth</b></label>
+    <input type="date" name="dob" required>
+
+    <label for="country"><b>Country</b></label>
+    <select id="country" name="country" required>
+      <option value="usa">USA</option>
+      <option value="canada">Canada</option>
+      <option value="others">Others</option>
+    </select>
+
+    <label for="gender"><b>Gender</b></label>
+    <input type="radio" name="gender" value="male" required> Male
+    <input type="radio" name="gender" value="female" required> Female
+    <input type="radio" name="gender" value="other" required> Other
+
+    <label for="profession"><b>Profession</b></label>
+    <input type="text" placeholder="Enter Profession" name="profession" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email" name="email" required>
+
+    <label for="mobile"><b>Mobile Number</b></label>
+    <input type="tel" placeholder="Enter Mobile Number" name="mobile" required>
+ </div>
+
+ <div class="container" style="background-color:#f1f1f1">
+    <input type="submit" value="Submit" onclick="showPopup()">
+    <input type="reset" value="Reset">
+ </div>
+</form>
+
+<script>
+function showPopup() {
+ var form = document.forms[0];
+ var formData = new FormData(form);
+
+ var values = Array.from(formData.values()).map((value, i) => `${formData.keys()[i]}: ${value}`).join(', ');
+ alert('Selected Values:\n' + values);
+}
+</script>
+
+</body>
+</html>
